@@ -45,7 +45,7 @@ The script will:
 
 	1. Generate Gems: Create all possible combinations of the specified shapes, each shape represented by a number.
 	2. Calculate Total Values: Sum the TITAN values for each Gem.
-	3. Create Excel File: Produce an Excel file named FINAL_Gems_Details_Summary.xlsx containing:
+	3. Create Excel File: Produce an Excel file named Gems_Details_Summary.xlsx containing:
 	•	Gems Details: A sheet listing each Gem, its rarity, and total TITAN.
 	•	Rarity Sheets: Individual sheets for each rarity level containing the Gems of that rarity.
 	•	Summary: A sheet summarizing the count and total TITAN for each rarity level, including a final row with totals.
@@ -62,4 +62,4 @@ generateGems.js
 	1.	Initialize Rarity Levels: Set up rarity levels with numerical representations based on input shapes and TITAN values.
 	2.	Generate Gems: Create all possible combinations of shapes and calculate their TITAN values.
 	3.	Create Excel Workbook: Generate sheets for Gem details, rarity levels, and a summary.
-	4.	Write File: Save the workbook as FINAL_Gems_Details_Summary.xlsx.
+	4.	Write File: Save the workbook as Gems_Details_Summary.xlsx.

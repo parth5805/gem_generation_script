@@ -69,3 +69,6 @@ row with totals.
 2. **Generate Gems**: Create all possible combinations of shapes and calculate their TITANWSTON values.
 3. **Create Excel Workbook**: Generate sheets for Gem details, rarity levels, and a summary.
 4. **Write File**: Save the workbook as `Gems_Details_Summary.xlsx`.
+
+## DEMO
+<img width="1112" alt="image" src="https://github.com/user-attachments/assets/f71345a1-967a-4236-8cb4-8c52f439c5b9">

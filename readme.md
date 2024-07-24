@@ -46,7 +46,7 @@ node generateGems.js "Common,Rare,Unique,Epic,Legendary,Mythic" 1 2 3 4 5 6
 This script will:
 1. **Generate Gems**: Create all possible combinations of the specified shapes, each shape represented by a number.
 2. **Calculate Total Values**: Sum the TITANWSTON values for each Gem.
-3. **Create Excel File**: Produce an Excel file named `FINAL_Gems_Details_Summary.xlsx` containing:
+3. **Create Excel File**: Produce an Excel file named `Gems_Details_Summary.xlsx` containing:
    - **Gems Details**: A sheet listing each Gem, its rarity, and total TITANWSTON.
    - **Rarity Sheets**: Individual sheets for each rarity level containing the Gems of that rarity.
    - **Summary**: A sheet summarizing the count and total TITANWSTON for each rarity level, including a final row with totals.

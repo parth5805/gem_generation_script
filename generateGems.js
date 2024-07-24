@@ -1,124 +1,9 @@
-// const xlsx = require('xlsx');
-
-// // Capture command-line arguments
-// const args = process.argv.slice(2);
-// const shapes = args[0].split(',').map(shape => shape.trim());
-// const titanValues = args.slice(1).reduce((acc, val, index) => {
-//     acc[shapes[index]] = parseInt(val, 10);
-//     return acc;
-// }, {});
-
-// let rarityLevels = {};
-
-// // Initialize rarity levels with numerical representations
-// function initializeRarityLevels() {
-//     shapes.forEach((shape, index) => {
-//         rarityLevels[shape] = {
-//             name: shape,
-//             maxLevel: index + 1,
-//             TITAN: titanValues[shape]
-//         };
-//     });
-// }
-
-// // Function to generate gems based on rarity levels and shapes
-// function getGems() {
-//     const allGems = [];
-//     const totalAmount = {};
-//     const levelGems = {};
-
-//     for (const shape1 in rarityLevels) {
-//         for (const shape2 in rarityLevels) {
-//             for (const shape3 in rarityLevels) {
-//                 for (const shape4 in rarityLevels) {
-//                     // Convert shapes to their corresponding numerical values
-//                     const shapeNumbers = [shape1, shape2, shape3, shape4].map(shape => {
-//                         return Object.keys(rarityLevels).indexOf(shape) + 1;
-//                     });
-//                     const gem = shapeNumbers.join('');
-//                     const rarityLevelsArray = shapeNumbers.map(num => rarityLevels[shapes[num - 1]].maxLevel);
-//                     const minLevel = Math.min(...rarityLevelsArray);
-//                     const rarity = Object.keys(rarityLevels).find(level => {
-//                         return minLevel <= rarityLevels[level].maxLevel;
-//                     });
-
-//                     if (rarity) {
-//                         const rarityName = rarityLevels[rarity].name;
-//                         const totalTITAN = shapeNumbers.reduce((sum, num) => sum + rarityLevels[shapes[num - 1]].TITAN, 0);
-//                         if (!totalAmount[rarityName]) {
-//                             totalAmount[rarityName] = { count: 0, amount: 0 };
-//                             levelGems[rarityName] = [];
-//                         }
-//                         totalAmount[rarityName].count++;
-//                         totalAmount[rarityName].amount += totalTITAN;
-//                         levelGems[rarityName].push({ gem, totalTITAN });
-//                         allGems.push({ gem, rarity: rarityName, totalTITAN });
-//                     }
-//                 }
-//             }
-//         }
-//     }
-
-//     return { allGems, totalAmount, levelGems };
-// }
-
-// // Main execution
-// function main() {
-//     if (shapes.length === 0 || Object.keys(titanValues).length === 0) {
-//         console.error('Please provide shapes and TITAN values.');
-//         process.exit(1);
-//     }
-
-//     initializeRarityLevels();
-
-//     const { allGems, totalAmount, levelGems } = getGems();
-
-//     // Create workbook and sheets
-//     const wb = xlsx.utils.book_new();
-
-//     // Create sheet for Gems details
-//     const gemsSheetData = allGems.map(gem => ({
-//         gem: gem.gem,
-//         rarity: gem.rarity,
-//         totalTITAN: gem.totalTITAN
-//     }));
-//     const gemsSheet = xlsx.utils.json_to_sheet(gemsSheetData);
-//     xlsx.utils.book_append_sheet(wb, gemsSheet, 'Gems Details');
-
-//     // Create sheets for each rarity level
-//     Object.keys(levelGems).forEach(rarity => {
-//         const raritySheet = xlsx.utils.json_to_sheet(levelGems[rarity]);
-//         xlsx.utils.book_append_sheet(wb, raritySheet, `${rarity} Gems`);
-//     });
-
-//     // Create summary sheet
-//     const summarySheetData = Object.keys(totalAmount).map(rarity => {
-//         return {
-//             Rarity: rarity,
-//             Count: totalAmount[rarity].count,
-//             TotalAmount: totalAmount[rarity].amount
-//         };
-//     });
-//     const summarySheet = xlsx.utils.json_to_sheet(summarySheetData);
-//     xlsx.utils.book_append_sheet(wb, summarySheet, 'Summary');
-
-//     // Write to file
-//     const filePath = '5FINAL_Gems_Details_Summary.xlsx';
-//     xlsx.writeFile(wb, filePath);
-
-//     console.log(`Excel file with grouped sheets and summary generated: ${filePath}`);
-// }
-
-// main();
-
-
-
 const xlsx = require('xlsx');
 
 // Capture command-line arguments
 const args = process.argv.slice(2);
 const shapes = args[0].split(',').map(shape => shape.trim());
-const titanValues = args.slice(1).reduce((acc, val, index) => {
+const TITANWSTONValues = args.slice(1).reduce((acc, val, index) => {
     acc[shapes[index]] = parseInt(val, 10);
     return acc;
 }, {});
@@ -131,7 +16,7 @@ function initializeRarityLevels() {
         rarityLevels[shape] = {
             name: shape,
             maxLevel: index + 1,
-            TITAN: titanValues[shape]
+            TITANWSTON: TITANWSTONValues[shape]
         };
     });
 }
@@ -159,15 +44,15 @@ function getGems() {
 
                     if (rarity) {
                         const rarityName = rarityLevels[rarity].name;
-                        const totalTITAN = shapeNumbers.reduce((sum, num) => sum + rarityLevels[shapes[num - 1]].TITAN, 0);
+                        const totalTITANWSTON = shapeNumbers.reduce((sum, num) => sum + rarityLevels[shapes[num - 1]].TITANWSTON, 0);
                         if (!totalAmount[rarityName]) {
                             totalAmount[rarityName] = { count: 0, amount: 0 };
                             levelGems[rarityName] = [];
                         }
                         totalAmount[rarityName].count++;
-                        totalAmount[rarityName].amount += totalTITAN;
-                        levelGems[rarityName].push({ gem, totalTITAN });
-                        allGems.push({ gem, rarity: rarityName, totalTITAN });
+                        totalAmount[rarityName].amount += totalTITANWSTON;
+                        levelGems[rarityName].push({ gem, totalTITANWSTON });
+                        allGems.push({ gem, rarity: rarityName, totalTITANWSTON });
                     }
                 }
             }
@@ -179,8 +64,8 @@ function getGems() {
 
 // Main execution
 function main() {
-    if (shapes.length === 0 || Object.keys(titanValues).length === 0) {
-        console.error('Please provide shapes and TITAN values.');
+    if (shapes.length === 0 || Object.keys(TITANWSTONValues).length === 0) {
+        console.error('Please provide shapes and TITANWSTON values.');
         process.exit(1);
     }
 
@@ -195,7 +80,7 @@ function main() {
     const gemsSheetData = allGems.map(gem => ({
         gem: gem.gem,
         rarity: gem.rarity,
-        totalTITAN: gem.totalTITAN
+        totalTITANWSTON: gem.totalTITANWSTON
     }));
     const gemsSheet = xlsx.utils.json_to_sheet(gemsSheetData);
     xlsx.utils.book_append_sheet(wb, gemsSheet, 'Gems Details');

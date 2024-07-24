@@ -72,3 +72,9 @@ row with totals.
 
 ## DEMO
 <img width="1112" alt="image" src="https://github.com/user-attachments/assets/f71345a1-967a-4236-8cb4-8c52f439c5b9">
+
+<img width="1021" alt="image" src="https://github.com/user-attachments/assets/2cccbe9c-a415-447a-b547-af255d3895f0">
+
+<img width="1017" alt="image" src="https://github.com/user-attachments/assets/48905b2d-50d9-4712-9363-fbb1e4ef3cdf">
+
+
